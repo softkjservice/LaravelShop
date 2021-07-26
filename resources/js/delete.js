@@ -1,7 +1,7 @@
 $(function() {
     $('.delete').click(function() {
         Swal.fire({
-            title: confirmDelete,
+            title: 'confirmDelete_00',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Tak',
