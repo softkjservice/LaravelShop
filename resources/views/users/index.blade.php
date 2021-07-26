@@ -34,8 +34,39 @@
 </div>
 @endsection
 @section('javascript')
-    const deleteUrl = "{{ url('users') }}/";
+  alert('dupa')
+  const deleteUrl = "{{ url('users') }}/"
 @endsection
 @section('js-files')
-    <script src="{{ asset('js/delete.js') }}"></script>
+    <script>
+        $(function() {
+            $('.delete').click(function() {
+                //alert('Coś')
+                //Swal.fire('Hello world!')
+                Swal.fire({
+                    title: 'confirmDelete',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Tak',
+                    cancelButtonText: 'Nie'
+                }).then((result) => {
+                    if (result.value) {
+                        alert('usuwaj ' + result.value)
+                        $.ajax({
+                            method: "DELETE",
+                            url: deleteUrl + $(this).data("id")
+                        })
+                            .done(function (data) {
+                                window.location.reload();
+                            })
+                            .fail(function (data) {
+                                Swal.fire('Oops...', data.responseJSON.message, data.responseJSON.status);
+                            });
+                    }
+                })
+            });
+        });
+    </script>
+     <!--<script src="{{ asset('js/delete.js') }}"></script> -->
 @endsection
+
