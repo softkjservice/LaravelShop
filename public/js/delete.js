@@ -3,6 +3,8 @@ $(function() {
         //alert('Coś')
         //Swal.fire('Hello world!')
        /* var _this = this;*/
+        var confirmation = confirm("Are you sure?");
+        if (confirmation){
         Swal.fire({
             title: 'confirmDelete',
             icon: 'warning',
@@ -24,5 +26,6 @@ $(function() {
                     });
             }
         })
+        }
     });
 });
