@@ -87,9 +87,7 @@
 
         @yield('js-files')
 
-    <script type="text/javascript">
-        @yield('test')
-    </script>
 
+    @yield('test')
 </body>
 </html>

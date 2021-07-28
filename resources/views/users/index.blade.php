@@ -33,19 +33,24 @@
     {{ $users->links() }}
 </div>
 @endsection
-@section('javascript')
-  /*alert('dupa')*/
-  const deleteUrl = "{{ url('users') }}/"
 
+
+
+@section('javascript')
+  const deleteUrl = "{{ url('users') }}/"
 @endsection
+
 @section('js-files')
    <script src="{{ asset('js/delete.js') }}"></script>
 @endsection
-{{--@section('js-files')
-
-    <script src="{{ 'pathDel' }}"></script>
-@endsection--}}
 
 @section('test')
-{{--alert('Test')--}}
+    <script>
+        $(function (){
+            $('.delete').click(function() {
+                console.log($(this).data("id"));
+            })
+        })
+
+    </script>
 @endsection
