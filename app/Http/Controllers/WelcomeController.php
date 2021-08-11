@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use \Debugbar;
 
 class WelcomeController extends Controller
 {
@@ -25,6 +26,12 @@ class WelcomeController extends Controller
 
         $query = Product::query();
         $query->paginate($paginate);
+
+        Debugbar :: info($filters);
+        Debugbar :: info($paginate);
+
+
+
         if (!is_null($filters)) {
             if (array_key_exists('categories', $filters)) {
                 $query = $query->whereIn('category_id', $filters['categories']);
@@ -42,7 +49,7 @@ class WelcomeController extends Controller
         }
 
         return view("welcome", [
-            'products' => $query->get(),
+            'products' => $query->paginate($paginate),
             'categories' => ProductCategory::orderBy('name', 'ASC')->get(),
             'defaultImage' => 'https://via.placeholder.com/240x240/5fa9f8/efefef'
         ]);

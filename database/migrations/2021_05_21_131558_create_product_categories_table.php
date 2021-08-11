@@ -21,6 +21,8 @@ class CreateProductCategoriesTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable()->after('price');
             $table->foreign('category_id')->references('id')->on('product_categories');
+            //Poniżej alternatywny schemat - jedna linijka zastępuje dwie !
+            /*$table->foreignId('user_id')->constrained();*/
         });
     }
 

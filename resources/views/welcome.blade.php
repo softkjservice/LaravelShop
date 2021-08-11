@@ -64,7 +64,7 @@
                                 <button type="button" class="btn btn-lg btn-light"> <span class="fa fa-arrow-right"></span> </button>
                             </div>
                             <div class="dropdown float-md-right">
-                                <a class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
+                                <a id="actual-count" class="btn btn-light btn-lg dropdown-toggle products-actual-count" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">5 <span class="caret"></span></a>
                                 <div class="dropdown-menu products-count" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">5</a>
                                     <a class="dropdown-item" href="#">10</a>
@@ -87,14 +87,13 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
+                <div class="divider mt-5 mb-5 border-bottom border-secondary">Coś</div>
                 <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">{{ __('shop.welcome.price') }}</h6>
                 <div class="price-filter-control">
                     <input type="number" class="form-control w-50 pull-left mb-2" placeholder="50" name="filter[price_min]" id="price-min-control">
-                    <input type="number" class="form-control w-50 pull-right" placeholder="150" name="filter[price_max]" id="price-max-control">
+                    <input type="number" class="form-control w-50 pull-right" placeholder="250" name="filter[price_max]" id="price-max-control">
                 </div>
                 <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200" data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
-                <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
                 <a href="#" class="btn btn-lg btn-block btn-primary mt-5" id="filter-button">{{ __('shop.welcome.filter') }}</a>
             </form>
         </div>
@@ -104,6 +103,8 @@
     const storagePath = '{{ asset('storage') }}/';
     const defaultImage = '{{ $defaultImage }}';
 @endsection
+
 @section('js-files')
-    <script src="{{ asset("js/welcome.js") }}"></script>
+    <script src="{{ asset('js/welcome1.js') }}"></script>
+
 @endsection
