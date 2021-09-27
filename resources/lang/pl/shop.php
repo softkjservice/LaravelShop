@@ -22,6 +22,11 @@ return [
         'edit_title' => 'Edycja produktu: :name',
         'show_title' => 'Podgląd produktu',
         'index_title' => 'Lista produktów',
+        'status' => [
+            'stored' => 'Produkt poprawnie dodany ',
+            'updated' => 'Produkt poprawnie nadpisany ',
+            'deleted' => 'Produkt usunięty ',
+        ],
         'fields' => [
             'name' => 'Nazwa',
             'description' => 'Opis',

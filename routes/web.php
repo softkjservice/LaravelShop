@@ -18,7 +18,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [WelcomeController::class, 'index'])->name('index');
+Route::get('/', [WelcomeController::class, 'index']);
+
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::middleware('can:isAdmin')->group(function () {
+        Route::resource('products', ProductController::class);
+        Route::get('/users/list', [UserController::class, 'index']);
+        Route::delete('/users/{user}', [UserController::class, 'destroy']);
+    });
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+Route::get('/hello', [HelloWorldController::class, 'show']);
+
+Auth::routes(['verify' => true]);
+
+
+
+/*Route::get('/', [WelcomeController::class, 'index']);
+
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::middleware(['can:isAdmin'])->group(function() {
+        Route::resource('products', ProductController::class);
+
+        Route::get('/users/list', [UserController::class, 'index']);
+        Route::delete('/users/{user}', [UserController::class, 'destroy']);
+    });
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+Route::get('/hello', [HelloWorldController::class, 'show']);
+
+Auth::routes(['verify' => true]);*/
+
+
+
+/*Route::get('/', [WelcomeController::class, 'index'])->name('index');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('auth');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('auth');
@@ -32,6 +68,6 @@ Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('auth');
 Route::get('/hello', [HelloWorldController::class, 'show']);
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

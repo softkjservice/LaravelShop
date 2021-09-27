@@ -105,6 +105,6 @@
 @endsection
 
 @section('js-files')
-    <script src="{{ asset('js/welcome1.js') }}"></script>
+    <script src="{{ asset('js/welcome.js') }}"></script>
 
 @endsection

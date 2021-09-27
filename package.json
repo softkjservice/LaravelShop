@@ -12,20 +12,20 @@
     "devDependencies": {
         "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
-        "browser-sync": "^2.27.4",
+        "browser-sync": "^2.26.14",
         "browser-sync-webpack-plugin": "^2.3.0",
         "cross-env": "^7.0.3",
         "jquery": "^3.6.0",
-        "laravel-mix": "^6.0.25",
+        "laravel-mix": "^5.0.9",
         "lodash": "^4.17.21",
         "popper.js": "^1.12",
-        "resolve-url-loader": "^3.1.4",
-        "sass": "^1.35.2",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.32.8",
         "sass-loader": "^8.0.0",
-        "vue-template-compiler": "^2.6.14"
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@sweetalert2/theme-wordpress-admin": "^5.0.1",
-        "sweetalert2": "^10.16.9"
+        "@fortawesome/fontawesome-free": "^5.15.3",
+        "sweetalert2": "^10.15.5"
     }
 }
