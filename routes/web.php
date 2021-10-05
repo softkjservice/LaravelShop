@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/', [WelcomeController::class, 'index']);
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::middleware('can:isAdmin')->group(function () {
         Route::resource('products', ProductController::class);
+        Route::resource('categories', ProductCategoryController::class);
         Route::get('/users/list', [UserController::class, 'index']);
         Route::delete('/users/{user}', [UserController::class, 'destroy']);
     });

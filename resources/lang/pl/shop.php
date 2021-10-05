@@ -17,16 +17,18 @@ return [
         'save' => 'Zapisz',
         'add' => 'Dodaj',
     ],
+
     'product' => [
         'add_title' => 'Dodawanie produktu',
         'edit_title' => 'Edycja produktu: :name',
         'show_title' => 'Podgląd produktu',
-        'index_title' => 'Lista produktów',
+        'index_title' => 'Lista produktów **',
         'status' => [
             'stored' => 'Produkt poprawnie dodany ',
             'updated' => 'Produkt poprawnie nadpisany ',
             'deleted' => 'Produkt usunięty ',
         ],
+
         'fields' => [
             'name' => 'Nazwa',
             'description' => 'Opis',
@@ -35,5 +37,8 @@ return [
             'image' => 'Grafika',
             'category' => 'Kategoria',
         ]
-    ]
+    ],
+    'category' => [
+        'index_title' => 'Lista kategorii produktów',
+    ],
 ];
