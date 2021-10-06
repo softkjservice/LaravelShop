@@ -1,18 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\UpsertProductRequest;
 use App\Http\Requests\UpsertCategoryRequest;
 use App\Models\Product;
-
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -45,7 +41,7 @@ class ProductCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  UpsertProductRequest  $request
+     * @param  UpsertCategoryRequest  $request
      * @return RedirectResponse
      */
     public function store(UpsertCategoryRequest $request): RedirectResponse
@@ -59,13 +55,13 @@ class ProductCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Product  $product
+     * @param  ProductCategory  $productCategory
      * @return View
      */
-    public function show(Product $product): View
+    public function show(ProductCategory $productCategory): View
     {
-        return view("products.show", [
-            'product' => $product
+        return view("categories.show", [
+            'productCategory' => $productCategory
         ]);
     }
 
@@ -75,11 +71,11 @@ class ProductCategoryController extends Controller
      * @param  Product  $product
      * @return View
      */
-    public function edit(Product $product): View
+    public function edit(ProductCategory $productCategory): View
     {
-        return view("products.edit", [
-            'product' => $product,
-            'categories' => ProductCategory::all()
+        return view("categories.edit", [
+            'productCategory' => $productCategory,
+
         ]);
     }
 
