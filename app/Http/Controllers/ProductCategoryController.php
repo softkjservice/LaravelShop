@@ -33,9 +33,7 @@ class ProductCategoryController extends Controller
      */
     public function create(): View
     {
-        return view("categories.create", [
-            'categories' => ProductCategory::all()
-        ]);
+        return view("categories.create");
     }
 
     /**
@@ -55,11 +53,12 @@ class ProductCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  ProductCategory  $productCategory
+     * @param  int  $id
      * @return View
      */
-    public function show(ProductCategory $productCategory): View
+    public function show($id): View
     {
+        $productCategory=ProductCategory::find($id);
         return view("categories.show", [
             'productCategory' => $productCategory
         ]);
