@@ -63,7 +63,7 @@ class ProductController extends Controller
      */
     public function show(Product $product): View
     {
-        var_dump($product->name);
+        var_dump($product ->name);
         return view("products.show", [
             'product' => $product
         ]);

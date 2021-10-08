@@ -67,11 +67,12 @@ class ProductCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Product  $product
+     * @param  int  $id
      * @return View
      */
-    public function edit(ProductCategory $productCategory): View
+    public function edit($id): View
     {
+        $productCategory=ProductCategory::find($id);
         return view("categories.edit", [
             'productCategory' => $productCategory,
 
@@ -81,30 +82,31 @@ class ProductCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpsertProductRequest  $request
-     * @param  Product  $product
+     * @param  UpsertCategoryRequest  $request
+     * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(UpsertProductRequest $request, Product $product): RedirectResponse
+    public function update(UpsertCategoryRequest $request, $id): RedirectResponse
     {
-        $product->fill($request->validated());
-        if ($request->hasFile('image')) {
-            $product->image_path = $request->file('image')->store('products');
-        }
-        $product->save();
-        return redirect(route('products.index'))->with('status', __('shop.product.status.updated'));
+        $productCategory=ProductCategory::find($id);
+        $productCategory->fill($request->validated());
+
+        $productCategory->save();
+        return redirect(route('categories.index'))->with('status', __('shop.product.status.updated'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Product  $product
+     * @param  int  $id
      * @return JsonResponse
      */
-    public function destroy(Product $product): JsonResponse
+    public function destroy($id): JsonResponse
     {
+        $productCategory=ProductCategory::find($id);
+        /*dump($id);*/
         try {
-            $product->delete();
+            $productCategory->delete();
             Session::flash('status',__('shop.product.status.deleted') );
             return response()->json([
                 'status' => 'success'
@@ -112,7 +114,7 @@ class ProductCategoryController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Wystąpił błąd!'
+                'message' => 'Wystąpił błąd! '
             ])->setStatusCode(500);
         }
     }
