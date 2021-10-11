@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('shop.product.edit_title', ['name' => $productCategory->name]) }}</div>
+                <div class="card-header">{{ __('shop.category.edit_title', ['name' => $productCategory->name]) }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('categories.update', $productCategory->id) }}" enctype="multipart/form-data">

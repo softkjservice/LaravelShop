@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('shop.product.add_title') }}</div>
+                <div class="card-header">{{ __('shop.category.add_title') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">

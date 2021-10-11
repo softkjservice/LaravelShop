@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('shop.product.show_title') }}</div>
+                <div class="card-header">{{ __('shop.category.show_title') }}</div>
                {{-- ID produktCategory {{$productCategory->id}}--}}
                 <div class="card-body">
                     <div class="form-group row">

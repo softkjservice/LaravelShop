@@ -39,6 +39,13 @@ return [
         ]
     ],
     'category' => [
+        'add_title' => 'Dodawanie kategorii produktów',
+        'edit_title' => 'Edycja kategorii produktów: :name',
+        'show_title' => 'Podgląd kategorii produktów',
         'index_title' => 'Lista kategorii produktów',
+        'fields' => [
+            'name' => 'Nazwa',
+
+        ]
     ],
 ];
